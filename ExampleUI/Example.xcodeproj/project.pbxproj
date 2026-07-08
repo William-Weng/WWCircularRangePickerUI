@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		818F38032FFE1A370099EE82 /* WWCircularRangePickerUI in Frameworks */ = {isa = PBXBuildFile; productRef = 818F38022FFE1A370099EE82 /* WWCircularRangePickerUI */; };
+		818F38062FFE22520099EE82 /* WWCircularRangePickerUI in Frameworks */ = {isa = PBXBuildFile; productRef = 818F38052FFE22520099EE82 /* WWCircularRangePickerUI */; };
+		818F38092FFE233A0099EE82 /* WWCircularRangePickerUI in Frameworks */ = {isa = PBXBuildFile; productRef = 818F38082FFE233A0099EE82 /* WWCircularRangePickerUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				818F38032FFE1A370099EE82 /* WWCircularRangePickerUI in Frameworks */,
+				818F38062FFE22520099EE82 /* WWCircularRangePickerUI in Frameworks */,
+				818F38092FFE233A0099EE82 /* WWCircularRangePickerUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +80,8 @@
 			);
 			name = Example;
 			packageProductDependencies = (
-				818F38022FFE1A370099EE82 /* WWCircularRangePickerUI */,
+				818F38052FFE22520099EE82 /* WWCircularRangePickerUI */,
+				818F38082FFE233A0099EE82 /* WWCircularRangePickerUI */,
 			);
 			productName = Example;
 			productReference = 8177C5772F91CB0F00ACEA3E /* Example.app */;
@@ -109,7 +112,7 @@
 			mainGroup = 8177C56E2F91CB0F00ACEA3E;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				818F38012FFE1A370099EE82 /* XCRemoteSwiftPackageReference "WWCircularRangePickerUI" */,
+				818F38072FFE233A0099EE82 /* XCRemoteSwiftPackageReference "WWCircularRangePickerUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8177C5782F91CB0F00ACEA3E /* Products */;
@@ -353,7 +356,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		818F38012FFE1A370099EE82 /* XCRemoteSwiftPackageReference "WWCircularRangePickerUI" */ = {
+		818F38072FFE233A0099EE82 /* XCRemoteSwiftPackageReference "WWCircularRangePickerUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/William-Weng/WWCircularRangePickerUI";
 			requirement = {
@@ -364,9 +367,13 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		818F38022FFE1A370099EE82 /* WWCircularRangePickerUI */ = {
+		818F38052FFE22520099EE82 /* WWCircularRangePickerUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 818F38012FFE1A370099EE82 /* XCRemoteSwiftPackageReference "WWCircularRangePickerUI" */;
+			productName = WWCircularRangePickerUI;
+		};
+		818F38082FFE233A0099EE82 /* WWCircularRangePickerUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 818F38072FFE233A0099EE82 /* XCRemoteSwiftPackageReference "WWCircularRangePickerUI" */;
 			productName = WWCircularRangePickerUI;
 		};
 /* End XCSwiftPackageProductDependency section */

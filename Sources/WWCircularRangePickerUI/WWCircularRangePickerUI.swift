@@ -4,7 +4,6 @@
 //
 //  Created by William.Weng on 2026/7/7.
 //
-/// https://www.youtube.com/watch?v=Uaa9sgDhbxc
 
 import SwiftUI
 
@@ -114,7 +113,7 @@ extension WWCircularRangePickerUI where StartView == DialHandleIcon, EndView == 
         
         let configure: Configure = .init(lineWidth: 44, innerColor: .gray.opacity(0.2), outerColor: .yellow.opacity(0.5), tickCount: 72, tickStride: 6)
         
-        self.init(configure: configure, startAngle: startAngle, endAngle: endAngle, startView: DialHandleIcon(kind: .moon), endView: DialHandleIcon(kind: .alarm), selectIndexClosure: selectIndexClosure)
+        self.init(configure: configure, startAngle: startAngle, endAngle: endAngle, startView: .init(kind: .moon), endView: .init(kind: .alarm), selectIndexClosure: selectIndexClosure)
     }
 }
 
@@ -254,13 +253,13 @@ private extension WWCircularRangePickerUI {
     }
 }
 
-//#Preview {
-//    
-//    @Previewable @State var startAngle: Angle = .degrees(0)
-//    @Previewable @State var endAngle: Angle = .degrees(90)
-//    
-//    WWCircularRangePicker(startAngle: $startAngle, endAngle: $endAngle) { startIndex, endIndex in
-//        print("\(startIndex), \(endIndex)")
-//    }.padding()
-//}
+#Preview {
+    
+    @Previewable @State var startAngle: Angle = .degrees(0)
+    @Previewable @State var endAngle: Angle = .degrees(90)
+    
+    WWCircularRangePickerUI(startAngle: $startAngle, endAngle: $endAngle) { startIndex, endIndex in
+        print("\(startIndex), \(endIndex)")
+    }.padding()
+}
 
