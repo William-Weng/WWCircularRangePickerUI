@@ -2,7 +2,7 @@
 
 # [WWCircularRangePickerUI](https://swiftpackageindex.com/William-Weng)
 
-一個使用 SwiftUI 製作的[圓形區間選擇器](https://www.youtube.com/watch?v=Uaa9sgDhbxc)。你可以在圓盤上選取起始角度與結束角度，並透過 callback 取得對應的 `(start, end)` index 範圍。
+A circular range picker built with [SwiftUI](https://www.youtube.com/watch?v=Uaa9sgDhbxc). It lets you select a start angle and an end angle on a dial, then converts that selection into a `(start, end)` index range through a simple callback.
 
 [![Swift-5.10+](https://img.shields.io/badge/Swift-5.10+-orange.svg)](https://developer.apple.com/swift/)
 [![iOS-17.0+](https://img.shields.io/badge/iOS-17.0+-pink.svg?style=flat)](https://developer.apple.com/swift/)
@@ -11,46 +11,45 @@
 ![SPM](https://img.shields.io/badge/SPM-supported-brightgreen.svg)
 [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 
-## ✨ [功能特色](https://peterpanswift.github.io/iphone-bezels/)
+## ✨ [Features](https://peterpanswift.github.io/iphone-bezels/)
 
-- 支援雙把手的圓形區間選擇。
-- 使用純 SwiftUI 實作。
-- 支援自訂起點與終點把手視圖。
-- 提供預設把手圖示，方便快速整合。
-- 透過 closure 回傳選取的 tick index。
-- 支援負角度、360 度循環與正規化顯示。
-- 選取弧線支援 `Shape` + `AnimatablePair` 動畫。
+- Circular range selection with two draggable handles.
+- Built with pure SwiftUI.
+- Supports custom start / end handle views.
+- Provides default handle icons for quick integration.
+- Emits selected tick indexes using a closure.
+- Handles negative angles, 360-degree wrapping, and normalized angle display.
+- Supports animated arc updates with `Shape` + `AnimatablePair`.
 
-## 📦 安裝方式
-
+## 📦 [Installation](https://www.youtube.com/watch?v=Uaa9sgDhbxc)
 ### Swift Package Manager
 
-在 Xcode 中加入套件：
+Add the package to your project in Xcode:
 
-1. 打開你的專案。
-2. 選擇 **File > Add Package Dependencies...**。
-3. 貼上 repository URL。
-4. 將 `WWCircularRangePickerUI` 加入你的 target。
+1. Open your project in Xcode.
+2. Select **File > Add Package Dependencies...**
+3. Paste the repository URL.
+4. Add `WWCircularRangePickerUI` to your target.
 
-## 🚀 基本用法
+## 🚀 Basic Usage
 
 ```swift
 import SwiftUI
 import WWCircularRangePickerUI
 
 struct ContentView: View {
-
+    
     @State private var startAngle: Angle = .degrees(0)
     @State private var endAngle: Angle = .degrees(90)
     @State private var timeRangeText: String = ""
-
+    
     var body: some View {
-
+        
         ZStack {
-
+            
             Text(timeRangeText)
                 .font(.title)
-
+            
             WWCircularRangePickerUI(startAngle: $startAngle, endAngle: $endAngle) {
                 updateText(from: $0, to: $1)
             }
@@ -61,14 +60,14 @@ struct ContentView: View {
 }
 
 private extension ContentView {
-
+    
     func calculateTime(at index: Int) -> String {
         let totalMinutes = 10 * index
         let hour = totalMinutes / 60
         let minute = totalMinutes % 60
         return String(format: "%02d:%02d", hour, minute)
     }
-
+    
     func updateText(from startIndex: Int, to endIndex: Int) {
         let startTime = calculateTime(at: startIndex)
         let endTime = calculateTime(at: endIndex)
@@ -77,15 +76,15 @@ private extension ContentView {
 }
 ```
 
-🔁 回傳值
+## 🔁 Callback
 
-選擇器會以 tuple 的方式回傳選取範圍：
+The picker returns the selected range as a tuple:
 
 ```swift
 public typealias SelectIndex = (start: Int, end: Int)
 ```
 
-使用方式如下：
+Example:
 
 ```swift
 WWCircularRangePickerUI(startAngle: $startAngle, endAngle: $endAngle) { startIndex, endIndex in
@@ -93,9 +92,9 @@ WWCircularRangePickerUI(startAngle: $startAngle, endAngle: $endAngle) { startInd
 }
 ```
 
-🪄 預設初始化
+## 🪄 Default Initializer
 
-如果你想快速開始，可以直接使用內建的把手視圖：
+Use the built-in handle views for a quick start:
 
 ```swift
 WWCircularRangePickerUI(
@@ -106,7 +105,7 @@ WWCircularRangePickerUI(
 }
 ```
 
-這個初始化器使用的預設配置大致如下：
+This initializer uses a default configuration similar to:
 
 ```swift
 Configure(
@@ -118,9 +117,9 @@ Configure(
 )
 ```
 
-🎛️ 客製化把手
+## 🎛️ Custom Handles
 
-你可以自訂起點與終點把手視圖：
+You can provide custom views for the start and end handles:
 
 ```swift
 WWCircularRangePickerUI(
@@ -134,9 +133,9 @@ WWCircularRangePickerUI(
 }
 ```
 
-⚙️ 配置說明
+## ⚙️ Configuration
 
-選擇器透過 `Configure` 進行設定。
+The picker is configured through `Configure`.
 
 ```swift
 let configure = WWCircularRangePickerUI<EmptyView, EmptyView>.Configure(
@@ -148,34 +147,34 @@ let configure = WWCircularRangePickerUI<EmptyView, EmptyView>.Configure(
 )
 ```
 
-### 常用參數
+### Common Parameters
 
-- `lineWidth`：圓弧線寬度。
-- `innerColor`：底層圓環顏色。
-- `outerColor`：選取區間顏色。
-- `tickCount`：圓盤總刻度數。
-- `tickStride`：主要刻度間距。
-- `stepAngle`：每個刻度對應的角度，通常由 `tickCount` 推導。
+- `lineWidth`: Stroke width of the circular track.
+- `innerColor`: Base ring color.
+- `outerColor`: Selected range color.
+- `tickCount`: Total number of ticks on the dial.
+- `tickStride`: Interval for major ticks.
+- `stepAngle`: Angle per tick, usually derived from `tickCount`.
 
-🧭 角度行為
+## 🧭 Angle Behavior
 
-這個元件是以圓形互動為核心，所以角度處理很重要。
+The picker is designed for circular interaction, so angle handling matters.
 
-- 角度會被正規化到 `0..<360`。
-- 支援負角度。
-- 超過 `360` 的值會自動循環回圓盤內。
-- 選取 index 可以透過四捨五入對應到最近的刻度。
-- 初始 callback 建議在 `.onAppear` 中觸發，而不是在 `init` 中執行。
+- Angles are normalized into `0..<360`.
+- Negative angles are supported.
+- Values larger than `360` are wrapped back into the dial.
+- Selected indexes can be calculated by rounding to the nearest tick.
+- Initial callback is best triggered from `.onAppear`, not from `init`.
 
-⚠️ 注意事項
+## ⚠️ Notes
 
-- `onAppear` 比 `init` 更適合處理第一次 callback，因為 SwiftUI 的 View initializer 應盡量避免 side effect。
-- `onChange` 可以用來監聽 `startAngle` 和 `endAngle` 的後續變動。
-- 如果你要把每個 tick 對應成時間，建議把轉換邏輯放在元件外部，讓 picker 保持可重用性。
+- `onAppear` is a better place than `init` for the first callback because SwiftUI view initializers should avoid side effects.
+- `onChange` can be used to observe later updates to `startAngle` and `endAngle`.
+- If you map each tick to time, keep the conversion logic outside the picker so the component stays reusable.
 
-⏱️ 時間範例
+## ⏱️ Example: Time Range Picker
 
-如果每個 tick 代表 10 分鐘，你可以把 index 轉成可讀時間字串：
+If one tick equals 10 minutes, you can convert the selected indexes into a readable time range:
 
 ```swift
 func calculateTime(at index: Int) -> String {
@@ -186,7 +185,7 @@ func calculateTime(at index: Int) -> String {
 }
 ```
 
-再搭配 callback 組合成區間文字：
+Then combine it with the callback:
 
 ```swift
 func updateText(from startIndex: Int, to endIndex: Int) {
@@ -196,7 +195,7 @@ func updateText(from startIndex: Int, to endIndex: Int) {
 }
 ```
 
-👀 預覽
+## 👀 Preview
 
 ```swift
 #Preview {
