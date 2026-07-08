@@ -11,6 +11,8 @@ A circular range picker built with [SwiftUI](https://www.youtube.com/watch?v=Uaa
 ![SPM](https://img.shields.io/badge/SPM-supported-brightgreen.svg)
 [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 
+https://github.com/user-attachments/assets/735cc004-af99-4fb2-b60b-d21bfe5a4766
+
 ## ✨ [Features](https://peterpanswift.github.io/iphone-bezels/)
 
 - Circular range selection with two draggable handles.

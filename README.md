@@ -11,6 +11,8 @@
 ![SPM](https://img.shields.io/badge/SPM-supported-brightgreen.svg)
 [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 
+https://github.com/user-attachments/assets/735cc004-af99-4fb2-b60b-d21bfe5a4766
+
 ## ✨ [功能特色](https://peterpanswift.github.io/iphone-bezels/)
 
 - 支援雙把手的圓形區間選擇。

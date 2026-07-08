@@ -1,0 +1,15 @@
+{
+  "originHash" : "78ca9484d3b9e5cee7c74441e3f6bc3c7bbdbaa5e3a1c0c1cefab80db5a3ded6",
+  "pins" : [
+    {
+      "identity" : "wwcircularrangepickerui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/William-Weng/WWCircularRangePickerUI",
+      "state" : {
+        "revision" : "55b95e920cdab9dc0a2fc22c79ec168323d41a1d",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}
